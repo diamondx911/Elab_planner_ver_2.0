@@ -1,9 +1,15 @@
-function listen() {
-    var source = new EventSource("/stream/");
-    var target = document.getElementById("placeholder");
-    source.onmessage = function(msg) {
-	target.innerHTML = msg.data + '<br>';
+
+
+var globmsg = null;
+var source = new EventSource("/stream/");
+source.onmessage = function(event) {
+    var msg = JSON.parse(event.data);
+    if (!globmsg) {
+
+
+        $("#airspeed").text("Groundspeed: " + msg.airspeed);
+ 
+
     }
 }
 
-listen();

@@ -17,7 +17,7 @@ def eventgen():
         msg_count += 1
         data = {
         'msg': msg_count, 
-        'fuck': random.random(), 
+        'airspeed': random.random(), 
         'local_id': local_id}
         data = json.dumps(data)
         yield 'data: ' + data + '\n\n'
